@@ -1,5 +1,6 @@
 import { getAdvice } from "./api";
-import DiceIcon from './images/icon-dice.svg';
+import DiceIcon from "./images/icon-dice.svg";
+import DividerImg from "./images/pattern-divider-desktop.svg";
 
 function MainCard() {
   const handleClick = async () => {
@@ -10,16 +11,37 @@ function MainCard() {
     document.getElementById("Adv").innerText = advice;
   };
 
+  // Fetch first advice
+  handleClick();
+
   return (
-    <div>
-      <h1>Main Card</h1>
-      <p>
-        Advice Id: <span id="AdvID">0</span>
-      </p>
-      <p>
-        Advice: <span id="Adv">This is an advice</span>
-      </p>
-      <button onClick={handleClick}><img src={DiceIcon} alt="get new advice" /></button>
+    <div className="container text-center">
+      <div className="row">
+        <div className="col">
+          <p>
+            ADVICE #<span id="AdvID"></span>
+          </p>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <p>
+            "<span id="Adv"></span>"
+          </p>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <img src={DividerImg} alt="divider" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <button onClick={handleClick}>
+            <img src={DiceIcon} alt="get new advice" />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
