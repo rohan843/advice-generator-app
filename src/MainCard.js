@@ -1,14 +1,17 @@
 import { getAdvice } from "./api";
+import { useState } from "react";
 import DiceIcon from "./images/icon-dice.svg";
 import DividerImg from "./images/pattern-divider-desktop.svg";
 
 function MainCard() {
+  const [advID, setAdvID] = useState("");
+  const [adv, setAdv] = useState("");
   const handleClick = async () => {
     const data = await getAdvice();
     const id = data.id;
     const advice = data.advice;
-    document.getElementById("AdvID").innerText = id;
-    document.getElementById("Adv").innerText = advice;
+    setAdvID(id);
+    setAdv(advice);
   };
 
   // Fetch first advice
@@ -18,16 +21,12 @@ function MainCard() {
     <div className="container text-center">
       <div className="row">
         <div className="col">
-          <p>
-            ADVICE #<span id="AdvID"></span>
-          </p>
+          <p>ADVICE #{advID}</p>
         </div>
       </div>
       <div className="row">
         <div className="col">
-          <p>
-            "<span id="Adv"></span>"
-          </p>
+          <p>"{adv}"</p>
         </div>
       </div>
       <div className="row">

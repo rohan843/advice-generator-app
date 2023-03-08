@@ -1,5 +1,7 @@
 # Frontend Mentor - Advice generator app
 
+`npm run deploy`
+
 ![Design preview for the Advice generator app coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
